@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Senipy</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Senipy</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="fitness.html">Fitness</a>
+    </div>
+  </nav>
+
+  <div class="dashboard">
+    <h1>Fitness Tracking</h1>
+    
+    <div class="stats-grid">
+      <div class="stat-card" data-aos="fade-up">
+        <h3>Steps Today</h3>
+        <p class="stat-value">8,432</p>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Calories Burned</h3>
+        <p class="stat-value">487 kcal</p>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Hydration</h3>
+        <p class="stat-value">1.8L / 2.5L</p>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+        <h3>Active Minutes</h3>
+        <p class="stat-value">45 mins</p>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="fitnessProgress"></canvas>
+    </div>
+
+    <div class="features">
+      <div class="feature-card" data-aos="fade-up">
+        <h3>Progress Tracker</h3>
+        <div class="progress-bar">
+          <div class="progress" style="width: 75%"></div>
+        </div>
+        <p>75% towards your goal</p>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Guided Meditation</h3>
+        <button class="btn btn-primary">Start Session</button>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Voice Assistant</h3>
+        <button class="btn btn-outline">Activate</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script type="module">
+    import { initCharts } from './js/charts.js';
+    
+    AOS.init();
+    
+    // Initialize fitness charts
+    const ctx = document.getElementById('fitnessProgress').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Daily Activity',
+          data: [45, 59, 80, 81, 56, 55, 40],
+          backgroundColor: '#3498db'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Weekly Activity Overview'
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

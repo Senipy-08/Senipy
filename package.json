@@ -1,0 +1,14 @@
+{
+  "name": "health-fitness-dashboard",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "servor --reload"
+  },
+  "dependencies": {
+    "servor": "^4.0.2",
+    "chart.js": "^4.4.1",
+    "aos": "^2.3.4",
+    "gsap": "^3.12.4",
+    "three": "^0.160.0"
+  }
+}
